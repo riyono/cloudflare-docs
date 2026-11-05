@@ -61,6 +61,8 @@ Wrangler supports the following environment variables:
   - The [local connection string](/hyperdrive/configuration/local-development/) for your database to use in local development with [Hyperdrive](/hyperdrive/). For example, if the binding for your Hyperdrive is named `PROD_DB`, this would be `CLOUDFLARE_HYPERDRIVE_LOCAL_CONNECTION_STRING_PROD_DB="postgres://user:password@127.0.0.1:5432/testdb"`. Each Hyperdrive is uniquely distinguished by the binding name.
 - `CLOUDFLARE_API_BASE_URL` <Type text="string" /> <MetaInfo text="optional" />
   - The default value is `"https://api.cloudflare.com/client/v4"`.
+- `CLOUDFLARE_API_HEADERS` <Type text="string" /> <MetaInfo text="optional" />
+  - A JSON object of [custom HTTP headers](#custom-api-headers) for Cloudflare API requests. Configured values override existing request headers, including authentication headers.
 - `WRANGLER_LOG` <Type text="string" /> <MetaInfo text="optional" />
   - Options for Logging levels are `"none"`, `"error"`, `"warn"`, `"info"`, `"log"` and `"debug"`. Levels are case-insensitive and default to `"log"`. If an invalid level is specified, Wrangler will fallback to the default. Logs can include requests to Cloudflare's API, any usage data being collected, and more verbose error logs.
 - `WRANGLER_LOG_PATH` <Type text="string" /> <MetaInfo text="optional" />
@@ -108,6 +110,10 @@ Other entry types include:
 - `version-deploy` - Written by `wrangler versions deploy` with deployment information
 - `pages-deploy` - Written by `wrangler pages deploy` with Pages deployment details
 - `command-failed` - Written when a command fails, including error code and message
+
+## Custom API headers
+
+<Render file="custom-api-headers" product="workers" />
 
 ## Example `.env` file
 
